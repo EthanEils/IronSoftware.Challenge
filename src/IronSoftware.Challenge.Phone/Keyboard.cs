@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IronSoftware.Challenge.Phone {
-    public static class Keyboard {
-        public static string OldPhonePad(string input) {
+﻿namespace IronSoftware.Challenge.Phone
+{
+    public static class Keyboard
+    {
+        public static string OldPhonePad(string input)
+        {
             if (!input.EndsWith('#')) return "?";
 
             input = input.ToUpper();
@@ -15,11 +11,14 @@ namespace IronSoftware.Challenge.Phone {
             List<string> distinctCharacters = [];
             string currentNumberString = string.Empty;
 
-            for (int i = 0; i < input.Length; i++) {
-                if (currentNumberString.Length == 0 || input[i] == currentNumberString[0]) {
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (currentNumberString.Length == 0 || input[i] == currentNumberString[0])
+                {
                     currentNumberString += input[i];
                 }
-                else {
+                else
+                {
                     if (!string.IsNullOrWhiteSpace(currentNumberString))
                         distinctCharacters.Add(currentNumberString);
                     currentNumberString = input[i].ToString();
@@ -27,8 +26,10 @@ namespace IronSoftware.Challenge.Phone {
             }
 
             string returnString = string.Empty;
-            foreach (string inputGroup in distinctCharacters) {
-                switch (inputGroup) {
+            foreach (string inputGroup in distinctCharacters)
+            {
+                switch (inputGroup)
+                {
                     case "2":
                         returnString += "A";
                         break;
