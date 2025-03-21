@@ -4,28 +4,38 @@
     {
         public static string OldPhonePad(string input)
         {
+            // Check to see if the input ends with the designated closing character
             if (!input.EndsWith('#')) return "?";
 
+            // Uppercase the input to make it easier to compare
             input = input.ToUpper();
 
+            // Split the input into distinct groups of characters
             List<string> distinctCharacters = [];
             string currentNumberString = string.Empty;
-
             for (int i = 0; i < input.Length; i++)
             {
+                // If the current character is the same as the previous character, add it to the current number string
                 if (currentNumberString.Length == 0 || input[i] == currentNumberString[0])
                 {
                     currentNumberString += input[i];
                 }
                 else
                 {
+                    // If the current character is different from the previous character and is a value, add the
+                    // current number string to the list of distinct characters
                     if (!string.IsNullOrWhiteSpace(currentNumberString))
                         distinctCharacters.Add(currentNumberString);
+
+                    // Load the next character
                     currentNumberString = input[i].ToString();
                 }
             }
 
+            // Beging building the string to return
             string returnString = string.Empty;
+
+            // Loop through the distinct characters and convert them to the appropriate letter
             foreach (string inputGroup in distinctCharacters)
             {
                 switch (inputGroup)
@@ -121,6 +131,7 @@
                 }
             }
 
+            // Return the final string
             return returnString;
         }
     }
