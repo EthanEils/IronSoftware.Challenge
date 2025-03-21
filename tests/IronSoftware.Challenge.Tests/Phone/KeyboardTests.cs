@@ -10,7 +10,7 @@ namespace IronSoftware.Challenge.Tests.Phone
             ["33#", "E"],
             ["227*#", "B"],
             ["222 2 22#", "CAB"],
-            ["4433555 55566#", "HELLO"],
+            ["4433555 555666#", "HELLO"],
             ["8 8877744466*664#", "?"]
         ];
 
